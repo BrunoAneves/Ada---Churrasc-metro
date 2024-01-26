@@ -1,30 +1,30 @@
 
 // Cor do tema
- const check = document.getElementById('check')
- const span = document.getElementById('header_span')
- const colorText = document.querySelectorAll('.textBlack')
+const check = document.getElementById('check')
+const span = document.getElementById('header_span')
+const colorText = document.querySelectorAll('.textBlack')
 
- check.addEventListener('change', () => {
+check.addEventListener('change', () => {
     document.body.classList.toggle('white')
-    
 
-    colorText.forEach( element => {
+
+    colorText.forEach(element => {
         element.classList.toggle('textBlack')
     })
 
 
-    if(span.innerText == 'Tema Escuro') {
+    if (span.innerText == 'Tema Escuro') {
         span.style.color = '#535353'
         span.innerText = 'Tema Claro'
-        
-        
-    }else {
+
+
+    } else {
         span.innerText = 'Tema Escuro'
         span.style.color = '#bbbbbb'
-        
+
     }
-   
- })
+
+})
 
 
 
@@ -50,19 +50,19 @@ btnPage1.addEventListener('click', () => {
     let hasErrors = false;
 
     form.forEach(element => {
-        
-        if(element.value.trim() == ''){
-            if(element.id == 'name') {
+
+        if (element.value.trim() == '') {
+            if (element.id == 'name') {
                 erroName.style.opacity = 1
                 setTimeout(() => {
                     erroName.style.opacity = 0;
                 }, 1500)
-            }else if(element.id == 'email') {
+            } else if (element.id == 'email') {
                 erroEmail.style.opacity = 1
                 setTimeout(() => {
                     erroEmail.style.opacity = 0;
                 }, 1500)
-            }else if (element.id == 'cep') {
+            } else if (element.id == 'cep') {
                 erroCep.style.opacity = 1
                 setTimeout(() => {
                     erroCep.style.opacity = 0;
@@ -70,13 +70,40 @@ btnPage1.addEventListener('click', () => {
             }
 
             hasErrors = true
-        } 
-        
+        }
+
     })
 
-    if(!hasErrors) {
+    if (!hasErrors) {
         page1.style.display = 'none'
         page2.style.display = 'block'
     }
-    
+
 })
+
+
+// Tela escolher quantidade de pessoas 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelectorAll('.cardPeople')
+
+    form.forEach(element => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault()
+            if (event.target.tagName === 'BUTTON') {
+                const input = event.target.closest('.buttons').previousElementSibling;
+                const value = parseInt(input.value);
+
+                if (event.target.id.includes('Menos')) {
+                    input.value = Math.max(value - 1, 0)
+                } else if (event.target.id.includes('Mais')) {
+                    input.value = value + 1
+                }
+            }
+        })
+    })
+})
+
+
+
