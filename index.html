@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churrascômetro</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,400;0,500;1,100&family=Lexend:wght@100..900&family=Raleway:wght@100;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="white">
+    <header class="header">
+        <span class="header_span" id="header_span">Tema Claro</span>
+        
+        <label  class="toggle_switch" >
+            <input type="checkbox" class="checkbox" id="check">
+            <div class="slider"></div>
+            
+          </label>
+       
+    </header>
+
+    <main class="main" >
+        <section class="main_section">
+            <h1 class="main_title">Churrascômetro</h1>
+            <p class="main_text textBlack">Fique por dentro de todas as novidade. cadastre seu e-mail e receba promoções especiais!</p>
+        </section>
+
+
+        <section id="page1"  >
+            <form class="main_inputs">
+                <label for=""></label>
+                <input class="main_input" type="text" name="" id="name" placeholder="Digite seu nome" required>
+                <p id="erroName">Digite um nome</p>
+
+                <label for=""></label>
+                <input class="main_input" type="text" name="" id="email" placeholder="Digite seu email" required> 
+                <p id="erroEmail">Digite um Email</p>
+
+
+                <label for=""></label>
+                <input class="main_input" type="number"  name="" id="cep" placeholder="Digite seu CEP"  required>
+                <p id="erroCep">Digite um Cep</p>
+
+            </form>
+
+            <section class="checkbox_section">
+                <input class="checkbox_input" type="checkbox" checked>
+                <p class="checkbox_title textBlack">Concordo em receber comunicação e ofertas personalizadas de acordo com seus interesses.</p>
+            </section>
+
+            <section id="buttonPage1" class="section_button">
+                <button class="button">Cadastrar</button>
+            </section>
+         </section>
+
+
+
+         <section id="page2" style="display: none;">
+
+            <form class="cardPeople" id="peopleCountForm">
+                <div class="men">
+                    <label class="labelQuantidade" for="adults">Homens</label>
+                    <input class="inputQuantidade" type="number" id="adults" min="0" value="0">
+                    <div class="buttons">
+                        <button class="buttonMenos">-</button>
+                        <button class="buttonMais">+</button>
+                    </div>
+                </div>
+
+                <div class="woman">
+                    <label class="labelQuantidade" for="adults">Mulheres</label>
+                    <input class="inputQuantidade" type="number" id="adults" min="0" value="0">
+                    <div class="buttons">
+                        <button class="buttonMenos">-</button>
+                        <button class="buttonMais">+</button>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <label class="labelQuantidade" for="adults">Crianças</label>
+                    <input class="inputQuantidade" type="number" id="adults" min="0" value="0">
+                    <div class="buttons">
+                        <button class="buttonMenos">-</button>
+                        <button class="buttonMais">+</button>
+                    </div>
+                </div>
+
+                <div class="drink">
+                    <label class="labelQuantidade" for="adults">Quantos adultos bebem?</label>
+                    <input class="inputQuantidade" type="number" id="adults" min="0" value="0">
+                    <div class="buttons">
+                        <button class="buttonMenos">-</button>
+                        <button class="buttonMais">+</button>
+                    </div>
+                </div>
+
+                
+            </form>
+            <section class="section_button">
+                <button class="button">Calcular</button>
+            </section>
+
+         </section>
+    
+
+
+  
+    </main>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
