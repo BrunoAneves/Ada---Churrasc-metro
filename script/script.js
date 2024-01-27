@@ -142,6 +142,7 @@ function calcItems() {
 
 
 
+
     const meatQuantity = 0.4 * men + 0.32 * women + 0.2 * children;
     const garlicBreadQuantity = 2 * (men + women) + 1 * children;
     const charcoalQuantity = 1 * (men + women + children + drinkers);
@@ -152,26 +153,72 @@ function calcItems() {
     const beerQuantity = 3 * drinkers;
 
 
+    function setPlural(valor, pessoa) {
+        if(valor > 1 && pessoa == 'Homem') {
+            return 's'
+        }else if(valor > 1 && pessoa === 'Mulheres') {
+            return 'es'
+        }else {
+            return ''
+        }
+    
+    }
+
+    
+
     const infosConvidados = document.getElementById('infosConvidados')
-    infosConvidados.innerHTML = ` <h3>${men+women+children} Convidados</h3>
-                                    <div class="div_convidados">
-                                        <span>${men} homen</span>
-                                        <span>${women} homen</span>
-                                        <span>${children} homen</span>
-                                    </div>`
+    infosConvidados.innerHTML = ` 
+     
+             <h3 class="page3_h3">${men+women+children} Convidados</h3>
+           <div class="div_convidados">
+              <span class="div_convidados__span1 textBlack">${men} Homen${setPlural(men, 'Homem')} </span>
+              <span class="div_convidados__span2 textBlack">${women} Mulher${setPlural(women, "Mulheres")}</span>
+              <span class="div_convidados__span3 textBlack">${children} Criança${setPlural(children, 'Homem')}</span>
+    </div>
+
+`
 
 
 
     const resultTable = document.getElementById('resultTable');
     resultTable.innerHTML = `
-      <tr><td>Carne</td><td>${meatQuantity.toFixed(2)} KG</td></tr>
-      <tr><td>Pão de Alho</td><td>${garlicBreadQuantity}</td></tr>
-      <tr><td>Carvão</td><td>${charcoalQuantity} KG</td></tr>
-      <tr><td>Sal</td><td>${saltQuantity.toFixed(2)} KG</td></tr>
-      <tr><td>Gelo</td><td>${iceQuantity} KG</td></tr>
-      <tr><td>Refrigerante</td><td>${sodaQuantity} garrafas de 2L</td></tr>
-      <tr><td>Água</td><td>${waterQuantity} garrafas de 1L</td></tr>
-      <tr><td>Cerveja</td><td>${beerQuantity} garrafas de 600ml</td></tr>
+
+    <tr class="table_tr__th ">
+        <th> ITEM </th>
+        <th> QUANTIDADE</th>
+    <tr>
+    <tr class="table_tr ">
+        <td>Carne</td>
+        <td>${meatQuantity.toFixed(2)} KG</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Pão de Alho</td>
+        <td>${garlicBreadQuantity}</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Carvão</td>
+        <td>${charcoalQuantity} KG</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Sal</td>
+        <td>${saltQuantity.toFixed(2)} KG</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Gelo</td>
+        <td>${iceQuantity} KG</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Refrigerante</td>
+        <td>${sodaQuantity} garrafas de 2L</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Água</td>
+        <td>${waterQuantity} garrafas de 1L</td>
+    </tr>
+    <tr class="table_tr ">
+        <td>Cerveja</td>
+        <td>${beerQuantity} garrafas de 600ml</td>
+    </tr>
     `;
 
 

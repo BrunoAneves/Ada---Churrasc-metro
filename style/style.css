@@ -298,3 +298,60 @@ body.white {
     height: 35px;
     font-size: 1.8rem;
 }
+
+
+
+/* page3 */
+
+
+
+.page3_h3 {
+    color: rgb(255, 92, 92);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+.div_convidados {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+
+
+
+.table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-right: #a1948b;
+    color: #313131;
+    background-color: #a1948b;
+    border: 3px solid rgb(136, 86, 49);
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+
+.table_tr__th {
+    font-size: 1.3rem;
+    font-weight: 500;
+
+}
+
+
+.table_tr__th th {
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.table_tr td {
+    padding: 5px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+}
