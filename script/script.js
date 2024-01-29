@@ -67,6 +67,26 @@ if (estadoSalvo.spanColor) {
 }
 
 
+// Requisição viaCep 
+
+async function consultaCep(cepValue) {
+    const url = 'https://viacep.com.br/ws/'
+    const cepUrl = `${url}${cepValue}/json/`
+    try {
+        const response = await fetch(cepUrl)
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        erroCep.innerText = 'Digite um Cep válido'
+        erroCep.style.opacity = 1;
+        console.error('Erro ao consultar o ViaCEP:', error);
+        throw error;
+    }
+}
+
+
+
+
 
 
 //Tela Cadastrar
@@ -86,7 +106,7 @@ function isValidEmail(email) {
 
 
 
-btnPage1.addEventListener('click', () => {
+btnPage1.addEventListener('click', async () => {
 
     let hasErrors = false;
 
@@ -117,11 +137,39 @@ btnPage1.addEventListener('click', () => {
 
     })
 
+
     if (!hasErrors) {
-        page1.style.display = 'none'
-        page2.style.display = 'block'
-        main_text.innerText = 'Precisa de uma ajudinha com o churrasco? :)' + " " + 'Quantas pessoas vão participar?'
+        const emailValue = document.getElementById('email').value;
+        if (emailValue !== '') {
+            if (!isValidEmail(emailValue)) {
+                erroEmail.innerText = 'Digite um Email válido';
+                erroEmail.style.opacity = 1;
+                setTimeout(() => {
+                    erroEmail.style.opacity = 0;
+                }, 1500);
+                hasErrors = true;
+            }
+        }
+
     }
+
+    if (!hasErrors) {
+        const cepValue = document.getElementById('cep').value;
+        console.log(cepValue)
+        if (cepValue !== '') {
+            try {
+                await consultaCep(cepValue);
+            } catch (error) {
+                // Se houver erro ao consultar o CEP, não permitir avançar para a próxima página
+                return;
+            }
+        }
+
+        page1.style.display = 'none';
+        page2.style.display = 'block';
+        main_text.innerText = 'Precisa de uma ajudinha com o churrasco? :) Quantas pessoas vão participar?';
+    }
+
 
 })
 
